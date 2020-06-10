@@ -29,7 +29,7 @@ some_value = (1 + (v * diff) + (v * diff)^2 / 2)
 new_weight = old_weight + some_value
 ```
 
-Refer to paritytech/substrate#6297
+Refer to: [paritytech/substrate#6297](https://github.com/paritytech/substrate/pull/6297)
 
 Under review now. Probably the code need to be updated. 
 
