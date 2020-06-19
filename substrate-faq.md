@@ -62,6 +62,14 @@ Validator elections only take place on era change.
 
 *Last updated: 2020-06-10*
 
+### How to do a^(b/c), where 0 <= b/c <= 1?
+
+- Substrate ver: `v2.0.0-rc3`
+
+Use [substrate-fixed](https://github.com/encointer/substrate-fixed) library
+
+Particularly, this is [where `pow` is implemented](https://github.com/encointer/substrate-fixed/blob/master/src/transcendental.rs#L320-L353).
+
 ---
 
 ## Contribution Rules
