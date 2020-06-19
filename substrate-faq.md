@@ -5,7 +5,8 @@ To contribute, refer to the [contribution rules](#contribution-rules).
 
 - Substrate ver: <`v2.0.0-rc2`
 
-Updating to Substrate v2.0.0-rc2 helps.
+1. Updating to Substrate v2.0.0-rc2 helps.
+2. (Fallback) Sometimes even rc2 could get stuck. So create a script to monitor the finlized block and restart Substrate if happening.
 
 *Last updated: 2020-06-10*
 
@@ -47,6 +48,8 @@ Validator elections only take place on era change.
 3. The era-forcing mode for proof-of-authority is ForceNone.
 
 4. Migrating to proof-of-stake only requires calling the [force_new_era function](https://github.com/paritytech/substrate/blob/v2.0.0-rc3/frame/staking/src/lib.rs#L1812), which changes the era-forcing mode from ForceNone to ForceNew.
+
+5. Remove all the invulnerable validators by calling [set_invulnerables](https://github.com/paritytech/substrate/blob/v2.0.0-rc3/frame/staking/src/lib.rs#L1841). This removes the genesis authorities from the invulnerables.
 
 *Last updated: 2020-06-10*
 
