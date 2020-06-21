@@ -15,6 +15,7 @@
   - Docs for storages / events / calls / errors
   - Ensure all invariants/assumptions are explicitly documented
     - Better to be documented as an assertion / expect in code if possible
+      - e.g. https://github.com/paritytech/substrate/blob/6f86bdd897ce06c0169dcbd2454dc7587cb8461f/frame/vesting/src/lib.rs#L259-L265
 - Maintainability
   - Code is reasonably understandable
   - Good variable/method/data structure names
