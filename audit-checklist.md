@@ -1,4 +1,6 @@
-# Audit Check List
+# Audit Check List (Draft)
+
+** Disclaimer**: This document is still in an early stage and should not be used as the criteria when launching a valuable network. It's always necessary to introduce sufficient third-party auditing before deploying to production. 
 
 ### High level:
 
@@ -14,7 +16,7 @@
   - Ensure all invariants/assumptions are explicitly documented
     - Better to be documented as an assertion / expect in code if possible
 - Maintainability
-  - Code is reasonably understandbale
+  - Code is reasonably understandable
   - Good variable/method/data structure names
 - Arithmetic
   - Overflow (standard ops)
@@ -49,5 +51,5 @@
     - i.e. validated before enter tx queue
 - Integration
   - Check all the parameter values are sane
-  - Ensure there are tests to validate the dependent parameters
+  - Ensure there are tests or benchmarks to validate the dependent parameters
     - e.g. Check the value of Dispatchable weights for FRAME pallets
