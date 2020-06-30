@@ -3,7 +3,7 @@ To contribute, refer to the [contribution rules](#contribution-rules).
 
 ### Validators could not finalize blocks even when online all the time. What is the solution?
 
-- Substrate ver: <`v2.0.0-rc2`
+- Substrate ver: `< v2.0.0-rc2`
 
 1. Updating to Substrate v2.0.0-rc2 helps.
 2. (Fallback) Sometimes even rc2 could get stuck. So create a script to monitor the finlized block and restart Substrate if happening.
@@ -72,6 +72,39 @@ Validator elections only take place on era change.
 Use [substrate-fixed](https://github.com/encointer/substrate-fixed) library
 
 Particularly, this is [where `pow` is implemented](https://github.com/encointer/substrate-fixed/blob/master/src/transcendental.rs#L320-L353).
+
+*Last updated: 2020-06-19*
+
+### How to use PolkadotJS-API to sign as secp256k1 (bitcoin) signature
+
+Right now polkadot-JS API keyring only supports `ed25519`, `sr25519` and `ecdsa` signature. [Detail code here](https://github.com/polkadot-js/common/blob/master/packages/keyring/src/keyring.ts#L43).
+
+At one point, Jaco seems to have integrated secp256k1 signature, but decided not to go ahead as it bloats the binary.
+
+- https://github.com/polkadot-js/wasm/issues/6
+- https://github.com/polkadot-js/wasm/pull/9/files
+
+But Jaco confirm it supports secp256k1, via `ecdsa` type.
+
+ref:
+
+- https://cryptobook.nakov.com/digital-signatures/ecdsa-sign-verify-messages#ecdsa-sign
+
+*Last updated: 2020-06-30*
+
+### How do you set custom enum type in polkadot-JS API side?
+
+Refer to here: https://polkadot.js.org/api/start/types.extend.html#user-defined-enum
+
+*Last updated: 2020-06-30*
+
+### How do submit extrinsics with dependencies?
+
+Use [utility/batch] extrinsic call
+
+*Last updated: 2020-06-30*
+
+### How could you add logic so only have one node to run offchain worker instead of all validator nodes running?
 
 ---
 
