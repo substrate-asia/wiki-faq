@@ -1,13 +1,13 @@
 # Audit Check List (Draft)
 
-** Disclaimer**: This document is still in an early stage and should not be used as the criteria when launching a valuable network. It's always necessary to introduce sufficient third-party auditing before deploying to production. 
+** Disclaimer**: This document is still in an early stage and should not be used as the criteria when launching a valuable network. It's always necessary to introduce sufficient third-party auditing before deploying to production.
 
 ### High level:
 
 - Read whitepaper and ensure it make sense
 - Read docs and ensure it matches to whitepaper
 - Read the code and ensure it matches to docs
-- Read the tests and ensure it make sense and have sufficent coverage for edge cases
+- Read the tests and ensure it make sense and have sufficient coverage for edge cases
 
 ### Areas to check
 
@@ -30,10 +30,11 @@
     - But no errors shall be ignored
 - Resources
   - Storage
-    - Always a cost to fill storage / Cannot fill stroage for free
+    - Always a cost to fill storage / Cannot fill storage for free
     - Incentive to free up storage / Offchain worker to cleanup storage
     - Always a hard limit for variable size item in storage
       - e.g. Number of elements in `Vec`
+    - Reasonable default value
   - Computation
     - Calls have reasonable weight
     - If the weight depends on input, ensure there is a reasonable maximum weight
