@@ -154,6 +154,14 @@ Ref to [Polkadot wiki](https://wiki.polkadot.network/docs/en/learn-accounts)
 
 *Last updated: 2020-08-18*
 
+### How could you construct the extrinsics(transaction) details from traversing Substrate blockchain?
+
+You need to retrieve the block info, with `api.rpc.chain.getBlock(Hash)` to get the blockInfo, and then you have enough details to construct the extrinsics detail back.
+
+Refer to [this section of code in `api-sidecar`](https://github.com/paritytech/substrate-api-sidecar/blob/master/src/services/blocks/BlocksService.ts#L177-L205)
+
+*Last updated: 2020-08-18*
+
 ## Unsolved Problems
 
 ### How could you add logic so only have one node to run offchain worker instead of all validator nodes running?
@@ -161,6 +169,8 @@ Ref to [Polkadot wiki](https://wiki.polkadot.network/docs/en/learn-accounts)
 ---
 
 ## Contribution Rules
+
+Please follow this template:
 
 ```
 ### The question here
