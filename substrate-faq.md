@@ -104,6 +104,58 @@ Use [utility/batch] extrinsic call
 
 *Last updated: 2020-06-30*
 
+### What is the best way of signing extrinsic off-chain and then sign by a user and submit to Substrate via RPC?
+
+Use [txwrapper](https://github.com/paritytech/txwrapper), and [substrate-subxt](https://github.com/paritytech/substrate-subxt)
+
+*Last updated: 2020-08-18*
+
+### Would a validator node be able to connect again if it has been disconnected for over a one epoch long? 
+
+BABE has the requirement has one epoch need to have at least one block being produced. If only a few validators from the whole network are disconnected, the validators would still be able to reconnect, just staked tokens being slashed. If the all validators has been disconnected for an epoch, then it won't be able to produce block. You have to use the hack of reverting the node system clock time to less than one epoch.
+
+*Last updated: 2020-08-18*
+
+### How could you retrieve the previous events in the block?
+
+- First, your node need to be run in archive mode (`--pruning archive`), or as validator. Otherwise it only keep historical events of the most recent 256 blocks. 
+
+- Then 
+
+  ```
+  const hash = await api.query.system.blockHash(blockNum);
+  const evs = await api.query.system.events.at(hash);
+
+  evs.forEach(({event, phase}) => {
+    console.log(`${event.section}:${event.method}, data: ${event.data}`);
+  })
+  ```
+
+- check that `system::ExtrinsicSuccess` event exists.
+
+*Last updated: 2020-08-18*
+
+### How to convert a usual public address into polkadot live network address?
+
+```
+const keyring = new Keyring({ type: 'sr25519' });
+const mnemonic = mnemonicGenerate();
+const hexPair = keyring.addFromUri(mnemonic);
+const polkadot_addr = keyring.encodeAddress(hexPair.address, 0);
+```
+
+Regarding which integer to pass in as the 2nd param, 
+
+- For polkadot live, use `0`
+- For Kusama, use `2`
+- For generic Substrate addr, use `42`
+
+Ref to [Polkadot wiki](https://wiki.polkadot.network/docs/en/learn-accounts)
+
+*Last updated: 2020-08-18*
+
+## Unsolved Problems
+
 ### How could you add logic so only have one node to run offchain worker instead of all validator nodes running?
 
 ---
