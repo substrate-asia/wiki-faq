@@ -160,6 +160,8 @@ You need to retrieve the block info, with `api.rpc.chain.getBlock(Hash)` to get 
 
 Refer to [this section of code in `api-sidecar`](https://github.com/paritytech/substrate-api-sidecar/blob/master/src/services/blocks/BlocksService.ts#L177-L205)
 
+Right now there is no way to get the extrinsic details from just the extrinsic hash natively on a Substrate chain. You need the block number.
+
 *Last updated: 2020-08-18*
 
 ## Unsolved Problems
